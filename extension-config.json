@@ -1,0 +1,50 @@
+{
+  "version": "1.0.0",
+  "id": "@shopgate-project/minimal-order-value",
+  "components": [
+    {
+      "id": "CartNotice",
+      "type": "portals",
+      "path": "frontend/components/CartNotice",
+      "target": "cart.item-list.before"
+    },
+    {
+      "type": "translations",
+      "path": "frontend/locale/de-DE.json",
+      "id": "locale/de-DE"
+    }
+  ],
+  "steps": [
+    {
+      "hooks": [
+        "shopgate.cart.getCart.v1:after"
+      ],
+      "path": "extension/checkOrderValue.js",
+      "input": [
+        {
+          "key": "totals"
+        },
+        {
+          "key": "isOrderable"
+        }
+      ],
+      "output": [
+        {
+          "key": "isOrderable"
+        }
+      ]
+    }
+  ],  
+  "configuration": {
+    "minimalOrderValue": {
+      "type": "admin",
+      "destination": "both",
+      "default": 0,
+      "params": {
+        "required": true,
+        "type": "number",
+        "label": "Minimal Order Value"
+      }
+    }
+  }
+}

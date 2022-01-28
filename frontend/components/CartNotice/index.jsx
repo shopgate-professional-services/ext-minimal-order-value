@@ -10,12 +10,15 @@ const { minimalOrderValue } = getConfig();
 /**
  * The CartNotice component
  */
-const CartNotice = ({ isOrderable }) => (
+const CartNotice = ({ 
+  isOrderable,
+  currency,
+}) => (
   !isOrderable ? (
     <div className={styles.notice}>
       <I18n.Text string="minimalOrderValue.noticeText">
         <strong forKey="mov">
-            <I18n.Price price={minimalOrderValue} currency="EUR" />
+            <I18n.Price price={minimalOrderValue} currency={currency} />
         </strong>
       </I18n.Text>
     </div>
@@ -23,11 +26,13 @@ const CartNotice = ({ isOrderable }) => (
 );
 
 CartNotice.propTypes = {
-  points: PropTypes.bool,
+  isOrderable: PropTypes.bool,
+  currency: PropTypes.string,
 };
 
 CartNotice.defaultProps = {
-  points: true,
+  isOrderable: true,
+  currency: "",
 };
 
 export default connect(CartNotice);

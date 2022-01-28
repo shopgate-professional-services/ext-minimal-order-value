@@ -8,7 +8,7 @@ const notice = css({
   padding: 16,
   width: '100%',
   display: 'inline-block',
-  color: '#fff',
+  color: colors.light,
 }).toString();
 
 export default {

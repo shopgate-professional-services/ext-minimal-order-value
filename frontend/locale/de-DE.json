@@ -1,0 +1,5 @@
+{
+  "minimalOrderValue": {
+    "noticeText": "Der Mindestbestellwert von {mov} wurde noch nicht erreicht."
+  }
+}
